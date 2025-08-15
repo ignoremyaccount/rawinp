@@ -8,7 +8,7 @@ struct termios astdout1;
 struct termios astdin1; 
 
 void rawncb(struct termios *astdout, struct termios *astdin, void (*cb)(char *, size_t)) {
-  astdin->
+  astdin->c_iflag &= ~(ECHO | ICANON);
 }
 
 /* restore and exit */
